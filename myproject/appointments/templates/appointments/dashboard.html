@@ -1,0 +1,25 @@
+{% extends 'appointments/base.html' %}
+
+{% block title %}Личный Кабинет{% endblock %}
+
+{% block content %}
+<h2>Добро пожаловать, {{ user.username }}!</h2>
+<p>Ваши заявки:</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Описание</th>
+            <th>Статус</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for request in requests %}
+        <tr>
+            <td>{{ request.description }}</td>
+            <td>{{ request.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'new_request' %}" class="btn btn-primary">Оформить новую заявку</a>
+{% endblock %}

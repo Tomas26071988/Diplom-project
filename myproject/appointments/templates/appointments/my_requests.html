@@ -1,0 +1,28 @@
+{% extends 'appointments/base.html' %}
+
+{% block content %}
+<h2>Мои заявки</h2>
+<table style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th style="padding: 10px; border: 1px solid #ddd;">Описание</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Статус</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Создано</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Дата записи</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Время записи</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for request in requests %}
+            <tr>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ request.description }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ request.status }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ request.created_at }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ request.appointment_date }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{ request.appointment_time }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
